@@ -59,3 +59,45 @@ ros2 launch your_robot_description moveit.launch.py
 1) В окне MoveIt выберите нужную позу для манипулятора
 2) Нажмите "Plan" для планирования траектории
 3) Нажмите "Execute" для выполнения движения
+
+4. Полная структура проекта:
+
+~/robotics/ros2_ws/
+├── src/
+│   └── your_robot_description/
+│       ├── CMakeLists.txt
+│       ├── package.xml
+│       │
+│       ├── urdf/
+│       │   ├── robot.urdf.xacro          (главный файл URDF)
+│       │   ├── base.urdf.xacro           (платформа + колеса)
+│       │   ├── manipulator.urdf.xacro    (6-звенный манипулятор)
+│       │   ├── sensors.urdf.xacro        (лидар + камера)
+│       │   └── gazebo.urdf.xacro         (Gazebo плагины)
+│       │
+│       ├── config/
+│       │   ├── controller_manager.yaml   (ros2_control параметры)
+│       │   ├── moveit_controllers.yaml   (MoveIt контроллеры)
+│       │   ├── joint_limits.yaml         (ограничения суставов)
+│       │   ├── nav2_params.yaml          (параметры навигации)
+│       │   └── bridge_config.yaml        (Gazebo-ROS мост)
+│       │
+│       ├── launch/
+│       │   ├── gazebo.launch.py          (запуск Gazebo)
+│       │   ├── robot_state_publisher.launch.py (TF трансформации)
+│       │   ├── rviz.launch.py            (визуализация RViz)
+│       │   ├── slam.launch.py            (SLAM Toolbox)
+│       │   ├── nav2.launch.py            (навигация)
+│       │   ├── moveit.launch.py          (MoveIt2)
+│       │   └── complete_demo.launch.py   (всё вместе)
+│       │
+│       ├── rviz/
+│       │   ├── robot_config.rviz         (конфиг для навигации)
+│       │   └── moveit_config.rviz        (конфиг для манипулятора)
+│       │
+│       └── worlds/
+│           └── corridor_world.world      (мир с коридором и препятствиями)
+│
+├── build/
+├── install/
+└── log/
