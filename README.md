@@ -62,6 +62,7 @@ ros2 launch your_robot_description moveit.launch.py
 
 4. Полная структура проекта:
 
+<pre>
 ~/robotics/
   ros2_ws/
     src/
@@ -96,3 +97,5 @@ ros2 launch your_robot_description moveit.launch.py
     build/
     install/
     log/
+</pre>
+
