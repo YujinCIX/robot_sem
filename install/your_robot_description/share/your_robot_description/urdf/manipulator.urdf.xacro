@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="create_manipulator" params="arm_mass link_length PI">
+
+    <link name="arm_base_link" />
+
+    <link name="link_1">
+      <inertial>
+        <mass value="${arm_mass/6}" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <cylinder radius="0.05" length="0.1" />
+        </geometry>
+        <material name="Red">
+          <color rgba="1.0 0.0 0.0 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="0.05" length="0.1" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="joint_1" type="revolute">
+      <parent link="arm_base_link" />
+      <child link="link_1" />
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+      <limit lower="-${PI}" upper="${PI}" effort="100" velocity="2" />
+      <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    <link name="link_2">
+      <inertial>
+        <mass value="${arm_mass/6}" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <cylinder radius="0.04" length="${link_length}" />
+        </geometry>
+        <material name="Orange">
+          <color rgba="1.0 0.5 0.0 1.0" />
+        </material>
+        <origin xyz="0 0 ${link_length/2}" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="0.04" length="${link_length}" />
+        </geometry>
+        <origin xyz="0 0 ${link_length/2}" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <joint name="joint_2" type="revolute">
+      <parent link="link_1" />
+      <child link="link_2" />
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+      <axis xyz="0 1 0" />
+      <limit lower="-${PI/2}" upper="${PI/2}" effort="100" velocity="2" />
+      <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    <link name="link_3">
+      <inertial>
+        <mass value="${arm_mass/6}" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <cylinder radius="0.04" length="${link_length}" />
+        </geometry>
+        <material name="Yellow">
+          <color rgba="1.0 1.0 0.0 1.0" />
+        </material>
+        <origin xyz="0 0 ${link_length/2}" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="0.04" length="${link_length}" />
+        </geometry>
+        <origin xyz="0 0 ${link_length/2}" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <joint name="joint_3" type="revolute">
+      <parent link="link_2" />
+      <child link="link_3" />
+      <origin xyz="0 0 ${link_length}" rpy="0 0 0" />
+      <axis xyz="0 1 0" />
+      <limit lower="-${PI/2}" upper="${PI/2}" effort="100" velocity="2" />
+      <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    <link name="link_4">
+      <inertial>
+        <mass value="${arm_mass/6}" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <box size="0.04 0.04 0.12" />
+        </geometry>
+        <material name="Green">
+          <color rgba="0.0 1.0 0.0 1.0" />
+        </material>
+        <origin xyz="0 0 0.06" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.04 0.04 0.12" />
+        </geometry>
+        <origin xyz="0 0 0.06" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <joint name="joint_4" type="revolute">
+      <parent link="link_3" />
+      <child link="link_4" />
+      <origin xyz="0 0 ${link_length}" rpy="0 0 0" />
+      <axis xyz="1 0 0" />
+      <limit lower="-${PI}" upper="${PI}" effort="50" velocity="2" />
+      <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    <link name="link_5">
+      <inertial>
+        <mass value="${arm_mass/6}" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <box size="0.04 0.04 0.12" />
+        </geometry>
+        <material name="Cyan">
+          <color rgba="0.0 1.0 1.0 1.0" />
+        </material>
+        <origin xyz="0 0 0.06" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.04 0.04 0.12" />
+        </geometry>
+        <origin xyz="0 0 0.06" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <joint name="joint_5" type="revolute">
+      <parent link="link_4" />
+      <child link="link_5" />
+      <origin xyz="0 0 0.12" rpy="0 0 0" />
+      <axis xyz="0 1 0" />
+      <limit lower="-${PI}" upper="${PI}" effort="50" velocity="2" />
+      <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    <link name="link_6">
+      <inertial>
+        <mass value="${arm_mass/6}" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <box size="0.04 0.04 0.12" />
+        </geometry>
+        <material name="Magenta">
+          <color rgba="1.0 0.0 1.0 1.0" />
+        </material>
+        <origin xyz="0 0 0.06" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.04 0.04 0.12" />
+        </geometry>
+        <origin xyz="0 0 0.06" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <joint name="joint_6" type="revolute">
+      <parent link="link_5" />
+      <child link="link_6" />
+      <origin xyz="0 0 0.12" rpy="0 0 0" />
+      <axis xyz="1 0 0" />
+      <limit lower="-${PI}" upper="${PI}" effort="50" velocity="2" />
+      <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    <link name="gripper_link">
+      <inertial>
+        <mass value="0.5" />
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      </inertial>
+      <visual>
+        <geometry>
+          <box size="0.05 0.05 0.05" />
+        </geometry>
+        <material name="White">
+          <color rgba="1.0 1.0 1.0 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.05 0.05 0.05" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="joint_6_to_gripper" type="fixed">
+      <parent link="link_6" />
+      <child link="gripper_link" />
+      <origin xyz="0 0 0.12" rpy="0 0 0" />
+    </joint>
+
+  </xacro:macro>
+
+</robot>

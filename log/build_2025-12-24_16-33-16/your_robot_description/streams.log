@@ -1,0 +1,61 @@
+[0.016s] Invoking command in '/home/sava/robotics/ros2_ws/build/your_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/sava/robotics/ros2_ws/src/your_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sava/robotics/ros2_ws/install/your_robot_description
+[0.099s] -- The C compiler identification is GNU 13.3.0
+[0.185s] -- The CXX compiler identification is GNU 13.3.0
+[0.214s] -- Detecting C compiler ABI info
+[0.354s] -- Detecting C compiler ABI info - done
+[0.371s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.371s] -- Detecting C compile features
+[0.372s] -- Detecting C compile features - done
+[0.386s] -- Detecting CXX compiler ABI info
+[0.545s] -- Detecting CXX compiler ABI info - done
+[0.556s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.556s] -- Detecting CXX compile features
+[0.557s] -- Detecting CXX compile features - done
+[0.561s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.749s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.833s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.022s] -- Configuring done (1.0s)
+[1.025s] -- Generating done (0.0s)
+[1.026s] -- Build files have been written to: /home/sava/robotics/ros2_ws/build/your_robot_description
+[1.032s] Invoked command in '/home/sava/robotics/ros2_ws/build/your_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/sava/robotics/ros2_ws/src/your_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sava/robotics/ros2_ws/install/your_robot_description
+[1.034s] Invoking command in '/home/sava/robotics/ros2_ws/build/your_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/sava/robotics/ros2_ws/build/your_robot_description -- -j4 -l4
+[1.085s] Invoked command in '/home/sava/robotics/ros2_ws/build/your_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/sava/robotics/ros2_ws/build/your_robot_description -- -j4 -l4
+[1.096s] Invoking command in '/home/sava/robotics/ros2_ws/build/your_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/sava/robotics/ros2_ws/build/your_robot_description
+[1.106s] -- Install configuration: ""
+[1.106s] -- Execute custom install script
+[1.107s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/urdf/base.urdf.xacro
+[1.117s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/urdf/gazebo.urdf.xacro
+[1.127s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/urdf/manipulator.urdf.xacro
+[1.137s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/urdf/robot.urdf.xacro
+[1.147s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/urdf/sensors.urdf.xacro
+[1.159s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/config/bridge_config.yaml
+[1.172s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/config/controller_manager.yaml
+[1.184s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/config/joint_limits.yaml
+[1.195s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/config/moveit_controllers.yaml
+[1.208s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/config/nav2_params.yaml
+[1.218s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/complete_demo.launch.py
+[1.229s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/gazebo.launch.py
+[1.239s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/moveit.launch.py
+[1.255s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/nav2.launch.py
+[1.269s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/robot_state_publisher.launch.py
+[1.284s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/rviz.launch.py
+[1.300s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/launch/slam.launch.py
+[1.314s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/rviz/moveit_config.rviz
+[1.324s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/rviz/robot_config.rviz
+[1.335s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/worlds/corridor_world.world
+[1.349s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/ament_index/resource_index/package_run_dependencies/your_robot_description
+[1.364s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/ament_index/resource_index/parent_prefix_path/your_robot_description
+[1.376s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/environment/ament_prefix_path.sh
+[1.386s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/environment/ament_prefix_path.dsv
+[1.397s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/environment/path.sh
+[1.410s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/environment/path.dsv
+[1.420s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/local_setup.bash
+[1.432s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/local_setup.sh
+[1.446s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/local_setup.zsh
+[1.457s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/local_setup.dsv
+[1.467s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/package.dsv
+[1.477s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/ament_index/resource_index/packages/your_robot_description
+[1.487s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/cmake/your_robot_descriptionConfig.cmake
+[1.497s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/cmake/your_robot_descriptionConfig-version.cmake
+[1.512s] -- Symlinking: /home/sava/robotics/ros2_ws/install/your_robot_description/share/your_robot_description/package.xml
+[1.530s] Invoked command in '/home/sava/robotics/ros2_ws/build/your_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/sava/robotics/ros2_ws/build/your_robot_description

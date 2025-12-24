@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="create_base_platform" params="base_length base_width base_height base_mass wheel_radius wheel_width wheel_mass PI">
+
+    <link name="base_link">
+      <inertial>
+        <mass value="${base_mass}" />
+        <inertia ixx="0.5" ixy="0" ixz="0" iyy="0.5" iyz="0" izz="1.0" />
+      </inertial>
+      <visual>
+        <geometry>
+          <box size="${base_length} ${base_width} ${base_height}" />
+        </geometry>
+        <material name="DarkGray">
+          <color rgba="0.3 0.3 0.3 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="${base_length} ${base_width} ${base_height}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="base_to_lidar" type="fixed">
+      <parent link="base_link" />
+      <child link="lidar_link" />
+      <origin xyz="0 0 ${base_height/2 + 0.1}" rpy="0 0 0" />
+    </joint>
+
+    <joint name="base_to_camera" type="fixed">
+      <parent link="base_link" />
+      <child link="camera_link" />
+      <origin xyz="${base_length/2 - 0.05} 0 ${base_height/2}" rpy="0 0 0" />
+    </joint>
+
+    <joint name="base_to_arm_base" type="fixed">
+      <parent link="base_link" />
+      <child link="arm_base_link" />
+      <origin xyz="0 0 ${base_height/2 + 0.05}" rpy="0 0 0" />
+    </joint>
+
+    <xacro:macro name="mecanum_wheel" params="name parent_link x y">
+      <link name="${name}">
+        <inertial>
+          <mass value="${wheel_mass}" />
+          <inertia
+            ixx="${0.5 * wheel_mass * wheel_radius * wheel_radius}"
+            ixy="0" ixz="0"
+            iyy="${0.5 * wheel_mass * wheel_radius * wheel_radius}"
+            iyz="0"
+            izz="${0.5 * wheel_mass * wheel_radius * wheel_radius}" />
+        </inertial>
+        <visual>
+          <geometry>
+            <cylinder radius="${wheel_radius}" length="${wheel_width}" />
+          </geometry>
+          <material name="Black">
+            <color rgba="0.1 0.1 0.1 1.0" />
+          </material>
+          <origin rpy="${PI/2} 0 0" />
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder radius="${wheel_radius}" length="${wheel_width}" />
+          </geometry>
+          <origin rpy="${PI/2} 0 0" />
+        </collision>
+      </link>
+
+      <joint name="${name}_joint" type="continuous">
+        <parent link="${parent_link}" />
+        <child link="${name}" />
+        <origin xyz="${x} ${y} -0.05" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit effort="100" velocity="10" />
+      </joint>
+    </xacro:macro>
+
+    <xacro:mecanum_wheel name="wheel_fl" parent_link="base_link" x="${base_length/4}" y="${base_width/2 + wheel_width/2}" />
+    <xacro:mecanum_wheel name="wheel_fr" parent_link="base_link" x="${base_length/4}" y="-${base_width/2 + wheel_width/2}" />
+    <xacro:mecanum_wheel name="wheel_rl" parent_link="base_link" x="-${base_length/4}" y="${base_width/2 + wheel_width/2}" />
+    <xacro:mecanum_wheel name="wheel_rr" parent_link="base_link" x="-${base_length/4}" y="-${base_width/2 + wheel_width/2}" />
+
+  </xacro:macro>
+
+</robot>
