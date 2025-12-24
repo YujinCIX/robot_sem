@@ -1,0 +1,70 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names: ["wheel_fl_joint", "wheel_rl_joint"]
+    right_wheel_names: ["wheel_fr_joint", "wheel_rr_joint"]
+    wheel_separation: 0.5
+    wheels_per_side: 2
+    wheel_radius: 0.08
+    wheel_separation_multiplier: 1.0
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0
+    publish_limited_velocity: true
+    open_loop: false
+    cmd_vel_timeout: 1.0
+    publish_odom: true
+    odom_frame_id: odom
+    base_frame_id: base_link
+    position_feedback: true
+    enable_odom_tf: true
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_partial_joints_goal: false
+    allow_integration_in_goal_trajectories: true
+    constraints:
+      stopped_velocity_tolerance: 0.05
+      goal_time: 0.0
+      joint_1:
+        trajectory: 0.1
+        goal: 0.05
+      joint_2:
+        trajectory: 0.1
+        goal: 0.05
+      joint_3:
+        trajectory: 0.1
+        goal: 0.05
+      joint_4:
+        trajectory: 0.1
+        goal: 0.05
+      joint_5:
+        trajectory: 0.1
+        goal: 0.05
+      joint_6:
+        trajectory: 0.1
+        goal: 0.05

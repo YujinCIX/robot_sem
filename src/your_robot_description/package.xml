@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>your_robot_description</name>
+  <version>0.0.0</version>
+  <description>Mobile robot with 6-DOF manipulator for Gazebo Harmonic and ROS2 Jazzy</description>
+  <maintainer email="user@example.com">Developer</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>urdfdom_parser</depend>
+  <depend>xacro</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>tf2</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>gz_ros2_control</depend>
+  <depend>ros_gz</depend>
+  <depend>ros_gz_sim</depend>
+  <depend>nav2_bringup</depend>
+  <depend>slam_toolbox</depend>
+  <depend>moveit_ros</depend>
+  <depend>moveit_simple_controller_manager</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
